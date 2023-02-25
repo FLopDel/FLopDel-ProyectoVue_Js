@@ -1,6 +1,6 @@
 # proyecto2trimestre
 
-This template should help get you started developing with Vue 3 in Vite.
+URL del hosting: proyecto2trimestre-a991f.web.app
 
 ## Recommended IDE Setup
 
