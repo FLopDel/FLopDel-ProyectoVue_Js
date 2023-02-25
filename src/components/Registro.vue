@@ -1,0 +1,75 @@
+<script setup>
+import { createUserWithEmailAndPassword} from "firebase/auth";
+import { auth } from '../firebase'
+import { ref } from 'vue';
+let usuario = ref("");
+let password = ref("");
+
+    function crearUsuario(){
+        createUserWithEmailAndPassword(auth, usuario.value, password.value)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+            });
+    }
+
+</script>
+
+<template>
+    <form action="#" id="registro">
+        <label for="usuario">Email: </label>
+        <input type="text" v-model="usuario">
+        <br><br>
+        <label for="usuario">Password: </label>
+        <input type="password" v-model="password">
+        <br><br>
+        <input type="submit" @click="crearUsuario" value="Registrarse">
+    </form>
+</template>
+
+<style>
+form{
+	width:300px;
+	padding:16px;
+	border-radius:10px;
+	margin:50px;
+	background-color:#ccc;
+}
+
+form label{
+	width:72px;
+	font-weight:bold;
+	display:inline-block;
+}
+
+form input[type="text"],
+form input[type="email"]{
+	width:180px;
+	padding:3px 10px;
+	border:1px solid #f6f6f6;
+	border-radius:3px;
+	background-color:#f6f6f6;
+	margin:8px 0;
+	display:inline-block;
+}
+
+form input[type="submit"]{
+	width:100%;
+	padding:8px 16px;
+	margin-top:32px;
+	border:1px solid #000;
+	border-radius:5px;
+	display:block;
+	color:#fff;
+	background-color:#000;
+} 
+
+form input[type="submit"]:hover{
+	cursor:pointer;
+}
+
+</style>
