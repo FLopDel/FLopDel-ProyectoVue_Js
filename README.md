@@ -1,1 +1,1 @@
-# FLopDel-ProyectoVue_Js
+Proyecto Vue.js para la asignatura Desarrollo en entorno cliente
